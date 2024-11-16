@@ -17,4 +17,3 @@ mandel: mandel.c libppm.so
 clean:
 	rm -f $(TARGET) *.so
 
-
