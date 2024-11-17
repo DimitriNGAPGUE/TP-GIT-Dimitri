@@ -1,0 +1,109 @@
+Exercice 1:
+
+1) Dans mon terminal j'ai entré les commandes !
+git config --global user.email "dimitringapgue9@gmail.com" et git config --global user.name "Wilfried Dimitri NGAPGUE TEGOMO"
+
+2) Rôle de chaque fichier du répertoire cloné :
+
+main.c : Fichier principal qui crée une image PPM avec un motif puis sauvegarde l'image.
+
+mandel.c : Génére une image de la fractale de Mandelbrot en niveaux de gris.
+
+ppm.c : Contient les fonctions pour gérer les images PPM : initialisation, libération et sauvegarde.
+
+ppm.h : Déclare les structures ppm_pixel et ppm_image, ainsi que les fonctions associées.
+
+Makefile : Automatisation de la compilation pour générer les exécutables test et mandel, et la bibliothèque dynamique libppm.so.
+
+3) Voir fichier ppm.h (Les commentaires y sont ajoutés).
+
+
+ 
+Exercice 2:
+
+1) Les codes contenus dans le fichier mandel.c ont été revu et le makefile a été arrangé de sorte que la compilation reussisse.
+(Voir fichiers mandel.c et le makefile pour prendre connaissance des changements).
+
+2) Explications des étapes du codes mandel.c: 
+ - Lignes 1-11 : Inclusion des bibliothèques et définition des constantes;
+ 
+ - Lignes 13-25 : Les fonctions de conversion cx et cy permettent de convertir les coordonnées des pixels en coordonnées complexes dans le plan.
+        cx(int x) : Calcule la coordonnée complexe réelle.
+        cy(int y) : Calcule la coordonnée complexe imaginaire ;
+        
+ - Lignes 29–30 : création d’une image PPM;
+ 
+ - Lignes 35-60 : Boucles pour dessiner chaque point. Plus précisement :
+ Double boucle imbriquée :
+    Parcourt les pixels horizontaux (de 0 à SIZEX).
+    Parcourt les pixels verticaux (de 0 à SIZEY).
+
+    colref : Échelle de couleur basée sur le logarithme du nombre d'itérations.
+    iter : Compteur d’itérations pour chaque point.
+
+ Calcul des coordonnées complexes: double complex c = cx(i) + cy(j) * I;
+
+ Calcul des itérations:
+
+    Boucle while :
+        Tant que le nombre d'itérations est inférieur à ITER.
+        Vérifie si le module de z dépasse le seuil TRSH (point divergeant).
+        Applique la formule de Mandelbrot : z=z^2+c.
+        
+ - Lignes 57-59 : Calcul de la couleur et mise à jour de l'image avec les fonctions int grey = colref * log(iter) et  ppm_image_setpixel(&im, i,j, grey, grey , grey );
+ 
+ - Lignes 62-63 : Sauvegarde et libération de la mémoire avec les fonctions ppm_image_dump( &im, "m.ppm") et ppm_image_release( &im ).
+ 
+ 
+ 
+ Exercice 3 :
+ 
+ 1) Pour ce faire, nous devons fusionner les deux branches master et colort_support 
+ 
+ 2) Etant donné que nous sommes deja sur la branche master (je n'ai,pas besoin de la commande git checkout master), nous entrons la commande suivante dans le terminal :
+  "git merge color_support", cela m'a d'abord produit une erreur car le répertoire courant est origin/master c'est à dire que le fichier parent se nomme
+  origin. J'ai donc entré la commande "git merge origin/color_support". 
+  
+  La réponse à la question de savoir s'il est nécessaire de faire une étape manuelle est OUI car j'ai obtenu des conflits qui surviennent lorsque les mêmes fichiers ont été modifiés différemment dans les deux branches. 
+  Ainsi, étant donné que nous avons apportés des mofications dans certains fichiers du reperoire master, nous devons manuellement modifier les codes pour selectionner lesquelles lignes concerver
+  et lesquelles garder.
+  
+  3) Détails de la gestions de ces étapes manuelles : 
+  
+  Tout d'abord voici le message contenant les conflits que j'ai eu : 
+Fusion automatique de Makefile
+CONFLIT (ajout/ajout) : Conflit de fusion dans Makefile
+Fusion automatique de mandel.c
+CONFLIT (ajout/ajout) : Conflit de fusion dans mandel.c
+Fusion automatique de ppm.h
+CONFLIT (ajout/ajout) : Conflit de fusion dans ppm.h
+La fusion automatique a échoué ; réglez les conflits et validez le résultat.
+
+En résumé, les confilts sont sur les fichiers mandel.c, ppm.h et le makefile. Ainsi j'ai ouvert chacun de ces fichiers pour modifier le code en notant que 
+les lignes de code entre <<<<<<< et ======= proviennent de ta branche actuelle (master), tandis que celles entre ======= et >>>>>>> viennent de la branche fusionnée (color_support).
+En le faisant j'ai justement remarqué que dans le fichier colort_support fusionné il y'avais des options de code pour l'inclusion des couleurs
+
+Une fois ces opérations terminées, j'ai effectués des commits sur les fichiers modifiés avec les deux ligness de code suivantes :
+ - git add Makefile mandel.c ppm.h
+ - git commit -m "Résolution des conflits lors de la fusion de color_support".
+ 
+ 4) Une fois toutes ces modifications faites, j’ai compilé le projet avec "make' et vérifié que la compilation se termine sans erreur (les couleurs étaient bien intégrées dans l’exécutable mandel).
+
+
+
+Exercice 4:
+
+1) Pour ce faire je choisis le dépôt GitHub. Voici comment j'ai procédé : 
+Vu que je n'avais pas encore de compte sur gitHub, je l'ai d'abord créé. Il m'a été demandé mon addresse mail, un mot de passe et un nom d'utilisateur.
+Ensuite j'ai créé un nouveau depôt Git privé pour transmettre le travail.
+
+2) Pour ce faire, il m'a d'abord fallu configuré mon dépot distant avec l'URL de mon nouveau depôt Git avec la commande "git remote set-url origin https://github.com/DimitriNGAPGUE/TDs.git"
+ Ensuite j'ai entré la ligne de commande  "git remote add origin https://github.com/DimitriNGAPGUE/TDs.git" suivi de la ligne de commande "git push -u origin --all".
+ 
+ Ce qui m'a demandé mon nom d'utilisateur et mon mot de passe que j'ai saisi mais j'ai recu un message d'erreur signalant que Git a changé le mode d'identification par mot de passe depuis Aout 2021.
+ J'ai donc dû allé génerer un token d'acces personel que j'ai copié.
+ Ensuite j'ai entré la même commande que précedemment et au niveau où on me demandais le mot de passe j'ai collé le token de connexion et le push a été effectué avec succés.
+ 
+FINNNNNNNN!
+
+Lien du depôt Git : https://github.com/DimitriNGAPGUE/TDs.git
