@@ -1,7 +1,7 @@
 Exercice 1:
 
 1) Dans mon terminal j'ai entré les commandes !
-git config --global user.email "dimitringapgue9@gmail.com" et git config --global user.name "Wilfried Dimitri NGAPGUE TEGOMO"
+git config --global user.email "dimitringapgue9@gmail.com" et git config --global user.name "Wilfried Dimitri NGAPGUE TEGOMO" respectivement pour que les commits portent mon nom et mon addresse mail.
 
 2) Rôle de chaque fichier du répertoire cloné :
 
@@ -22,7 +22,7 @@ Makefile : Automatisation de la compilation pour générer les exécutables test
 Exercice 2:
 
 1) Les codes contenus dans le fichier mandel.c ont été revu et le makefile a été arrangé de sorte que la compilation reussisse.
-(Voir fichiers mandel.c et le makefile pour prendre connaissance des changements).
+(Voir fichier mandel.c et le makefile pour prendre connaissance des changements).
 
 2) Explications des étapes du codes mandel.c: 
  - Lignes 1-11 : Inclusion des bibliothèques et définition des constantes;
