@@ -5,7 +5,7 @@ int main(int argc, char *argv[])
 {
     struct ppm_image im;
  
-    ppm_image_init( &im, 1024, 1024 );
+    ppm_image_init(&im, 1024, 1024 );
  
     int i,j;
  
