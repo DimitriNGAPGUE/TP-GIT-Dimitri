@@ -97,7 +97,7 @@ for (i = 0; i < SIZEX; ++i) {
         }
     }
  
-    ppm_image_dump( &im, "m.ppm");   /*Corrigé*/
+    ppm_image_dump( &im, "image.ppm");   /*Corrigé*/
     ppm_image_release( &im );   /*Corrigé*/
  
  
