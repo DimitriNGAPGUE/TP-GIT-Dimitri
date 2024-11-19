@@ -103,7 +103,9 @@ Ensuite j'ai créé un nouveau depôt Git privé pour transmettre le travail.
  Ce qui m'a demandé mon nom d'utilisateur et mon mot de passe que j'ai saisi mais j'ai recu un message d'erreur signalant que Git a changé le mode d'identification par mot de passe depuis Aout 2021.
  J'ai donc dû allé génerer un token d'acces personel que j'ai copié.
  Ensuite j'ai entré la même commande que précedemment et au niveau où on me demandais le mot de passe j'ai collé le token de connexion et le push a été effectué avec succés.
- 
+
+Nb: Lorsqu'on exécute la commande make dans le repertoire du travail, elle génére des fichiers dont les exécutables test et mandel. Aprés cela il faut exécuter les commandes "./make" et "./test" pour générer les images en couleurs.
+
 FINNNNNNNN!
 
 Lien du depôt Git : https://github.com/DimitriNGAPGUE/TDs.git
