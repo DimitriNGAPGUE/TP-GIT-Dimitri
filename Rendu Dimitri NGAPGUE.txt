@@ -104,7 +104,7 @@ Ensuite j'ai créé un nouveau depôt Git privé pour transmettre le travail.
  J'ai donc dû allé génerer un token d'acces personel que j'ai copié.
  Ensuite j'ai entré la même commande que précedemment et au niveau où on me demandais le mot de passe j'ai collé le token de connexion et le push a été effectué avec succés.
 
-Nb: Lorsqu'on exécute la commande make dans le repertoire du travail, elle génére des fichiers dont les exécutables test et mandel. Aprés cela il faut exécuter les commandes "./make" et "./test" pour générer les images en couleurs.
+Nb: Lorsqu'on exécute la commande make dans le repertoire du travail, elle génére des fichiers dont les exécutables test et mandel. Aprés cela il faut exécuter la commande "make run" pour exécuter les programme test et mandel afin de générer les deux images en couleurs.
 
 FINNNNNNNN!
 
